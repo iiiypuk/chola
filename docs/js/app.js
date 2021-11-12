@@ -1,5 +1,7 @@
 function layoutReplace()
 {
+  'use strict';
+
   keys = {
     "q":"й", "w":"ц", "e":"у", "r":"к", "t":"е", "y":"н", "u":"г", 
     "i":"ш", "o":"щ", "p":"з", "[":"х", "]":"ъ", "a":"ф", "s":"ы", 
@@ -8,16 +10,16 @@ function layoutReplace()
     "n":"т", "m":"ь", ",":"б", ".":"ю", "/":"."
   };  
 
-  var dat = document.getElementById("one").value
-  var res = document.getElementById("two")
-  let text = null
+  let inputText = document.getElementById("one").value;
+  let outputText = document.getElementById("two");
+  let text = null;
 
-  console.log(dat)
+  console.log(inputText);
 
 
-  text = dat.replace(/[A-z/,.;\'\]\[]/g, function(x) {
+  text = inputText.replace(/[A-z/,.;\'\]\[]/g, function(x) {
     return x == x.toLowerCase() ? keys[ x ] : keys[ x.toLowerCase() ].toUpperCase();
   });
 
-  res.value = text
+  outputText.value = text;
 }
